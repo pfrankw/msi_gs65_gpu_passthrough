@@ -1,0 +1,12 @@
+[Unit]
+Description=Set GPU power state to D0
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "if cat /proc/cmdline | grep -q \"blacklist=nouveau\"; then echo on | tee /sys/bus/pci/devices/0000\:01\:00.0/power/control /sys/bus/pci/devices/0000\:01\:00.1/power/control > /dev/null; fi"
+RemainAfterExit=false
+#ExecStop=/bin/bash -c "echo auto | tee /sys/bus/pci/devices/0000\:01\:00.0/power/control /sys/bus/pci/devices/0000\:01\:00.1/power/control > /dev/null"
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
