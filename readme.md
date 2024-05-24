@@ -144,7 +144,7 @@ There is a little bug with PCI D power states, where the GPU D state gets modifi
 
 You can notice it by watching the dmesg messages speaking about the fact that the peripheral can't go in a D3Cold state or something like that.
 
-For this purpose, you must go in the "hidden" MSI bios, so go under the `Advanced tab` and press, at the same time, `Right ctrl` + `Right shift` + `Left alt` + `F2`, scroll down, enter the `ACPI D3Cold Settings` and enable it.
+For this purpose, you must go in the "hidden" MSI bios, so go under the `Advanced` tab and press, at the same time, `Right ctrl` + `Right shift` + `Left alt` + `F2`, scroll down, enter the `ACPI D3Cold Settings` and enable it.
 
 After doing that you must disable the power management on the specific device via:
 `echo on | tee /sys/bus/pci/devices/0000\:01\:00.0/power/control /sys/bus/pci/devices/0000\:01\:00.1/power/control > /dev/null`
